@@ -2,7 +2,7 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include <cashcow.h
+#include <cashcow.h>
 
 static int
 not_here(char *s)
