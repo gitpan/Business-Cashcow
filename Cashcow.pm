@@ -14,7 +14,7 @@ require AutoLoader;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.6';
+$VERSION = '0.61';
 
 
 sub AUTOLOAD {
@@ -100,40 +100,46 @@ otherwise.
                      cashcow => ''
                     };
 
-Business::Cashcow::RequestAuth($transaction, $ticket, "hemli");
+  Business::Cashcow::RequestAuth($transaction, $ticket, "secret");
 
 This function make the initial communucation to verify the card etc. It
 returns on of the folowing status messages:
 
-'action_approved',
-'action_decline',
-'action_partly_approved',
-'action_amount_error',
-'action_invalid_transaction',
-'action_no_reply',
-'action_system_error',
-'action_expired_card',
-'action_retransmit',
-'action_internal_error'
+  'action_approved',
+  'action_decline',
+  'action_partly_approved',
+  'action_amount_error',
+  'action_invalid_transaction',
+  'action_no_reply',
+  'action_system_error',
+  'action_expired_card',
+  'action_retransmit',
+  'action_internal_error'
 
 and sets $ticket to a ticket to be used as reference of the transaction in
 Cashcow::RequestCapture. It shoud be called as a response of an order.
 
-Business::Cashcow::RequestCapture($ticket,"hemli",7.25);
+  Business::Cashcow::RequestCapture($ticket,"secret",7.25);
 
 This function compleetes the payment. It should be called when the
 merchant has fullfilled the order.
 
 =head1 BUGS
 
-The software is an alpha, so don't blame me...
+The software is an alpha, so don't blame me, but bug (and success)
+reports are also welcome.
 
 =head1 AUTHOR
 
 Gustav Kristoffer Ek <stoffer@netcetera.dk>
+
+Copyright 1999 Gustav Kristoffer Ek. All rights reserved. This program
+is free software; you can redistribute it and/or modify it under the
+same terms as Perl itself.
 
 =cut
 
 sub InitCashcow;
 sub AuthRequest;
 sub RequestCapture;
+
