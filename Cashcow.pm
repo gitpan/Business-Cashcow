@@ -14,7 +14,8 @@ require AutoLoader;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.05';
+$VERSION = '0.6';
+
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -73,7 +74,7 @@ for more info.
 
 Business::Cashcow::InitCashcow("passphrase", "rc4key");
 
-Call this function to load the cashcow.ini file and setup state
+Call this function to load the /etc/cashcow.ini file and setup state
 regarding keys and certificates. Returns true if private key was
 successfully unlocked using the supplied passphase, false
 otherwise.
